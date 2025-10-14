@@ -1,0 +1,41 @@
+
+.post-card { position: relative; overflow: hidden; }
+
+/* make image fill the container */
+.post-card .card-img-top {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* overlay covers the image and places text over it */
+.post-overlay {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* text in middle */
+  align-items: center;
+  padding: 1.5rem;
+  color: #d2c9c9;
+  pointer-events: auto; /* allows clicks to pass through if needed */
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6); // subtle shadow for readability
+}
+
+/* make only the text interactive (buttons/links) */
+.post-overlay a, .post-overlay button {
+  pointer-events: auto; /* enable interaction */
+  position: relative; /* ensure they are above the overlay */
+  z-index: 5; /* ensure they are above the overlay */
+}
+
+/* typography tweaks */
+.post-title { margin: 0 0 0.4rem 0; font-size: 1.6rem; }
+.post-content { margin: 0 0 0.6rem 0; max-height: 6.6rem; overflow: hidden; opacity: 0.95; }
+
+/* responsive */
+@media (min-width: 768px) {
+  .post-title { font-size: 2rem; }
+  .post-content { font-size: 1rem; }
+}
