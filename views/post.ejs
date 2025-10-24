@@ -14,17 +14,18 @@
       
       <div class="post-overlay">
         <h1 class="post-content-box card-title"><%= post.subject %></h1>
-        <h3 class="post-content-box post-title"><%= post.title %></h3>
+        <h3 class="post-content-box card-title"><%= post.title %></h3>
           <div class="post-content-box">
             <p class="post-content"><%= post.content %></p>
           </div>
 
-          <a href="/edit/<%= post.id %>">Edit this Post</a>
-          <br><!-- Separator -->
-          <a href="/">Back Home Again</a>
+          <a class="btn btn-primary" href="/edit/<%= post.id %>">Edit this Post</a>
+
+          <a class="btn btn-secondary" href="/">Back Home Again</a>
+
       </div>
       
     </div>
     </main>
-  </body>
+  </body
 </html>

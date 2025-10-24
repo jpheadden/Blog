@@ -13,13 +13,13 @@
     <div class="card-body post-card">
        <img src="/images/demo-image-01.jpg" class="card-img-top" alt="...">
       
-      <div class="post-overlay">
-          <form method="POST" action="/new">
+      <div class="editor-container post-overlay">
+          <form class="editor-panel" method="POST" action="/new">
             <!-- Form fields for subject, title and content -->
-            <input type="text" name="subject" placeholder="Area of Interest" required><br>
-            <input type="text" name="title" placeholder="Title" required><br>
-            <textarea name="content" placeholder="Write your post here" required></textarea><br>
-            <button type="submit">Save</button>
+            <input class="editor-field" name="subject" placeholder="Area of Interest" required><br>
+            <input class="editor-field" type="text" name="title" placeholder="Title" required><br>
+            <textarea class="editor-field" name="content" placeholder="Write your post here" required></textarea><br>
+            <button class="btn-primary" type="submit">Save</button>
           </form>
       </div>
       <a href="/">Back Home Again</a>

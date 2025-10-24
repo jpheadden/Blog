@@ -1,60 +1,107 @@
-.post-content-box {
-  background-color: #131212;
-  padding: 30px;
+/* Post display system */
+.post-card {
+  position: relative;
+  overflow: hidden;
   border-radius: 12px;
-  border-color: whitesmoke;
-  border-width: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
-}
-/* ...existing code...
-/* editor layout */
-.editor-container { display:flex; justify-content:center; padding:2rem 1rem; }
-.editor-panel {
-  width:100%;
-  max-width:840px;
-  background: rgba(255,255,255,0.03); /* or #fff for light theme */
-  color: inherit;
-  padding:1.25rem;
-  border-radius:10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  border: 1px solid rgba(148, 11, 11, 0.04);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+  min-height: 80vh;
 }
 
-/* fields */
-.editor-field { margin-bottom:1rem; display:flex; flex-direction:column; gap:0.35rem; }
-.editor-field label { font-weight:600; font-size:0.95rem; }
-.editor-field input,
-.editor-field textarea {
-  width:100%;
-  padding:0.6rem 0.75rem;
-  border-radius:6px;
-  border:1px solid rgba(0,0,0,0.12);
-  background: rgba(255,255,255,0.03);
-  color: inherit;
-  resize:vertical;
-  font-size:1rem;
-  line-height:1.4;
+.post-card .card-img-top {
+  display: block;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+.card-title {
+  position: relative;
+  bottom: 1rem;
+  left: 1rem;
+  color: #f5f2f2;
+  text-shadow: 0 2px 4px rgba(242, 236, 236, 0.8);
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-/* focus */
-.editor-field input:focus,
-.editor-field textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(100,150,255,0.12);
-  border-color: rgba(100,150,255,0.6);
+/* SINGLE post-overlay definition */
+.post-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  color: #fff;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  gap: 1rem;
+  z-index: 1000;
+}
+.post-content-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: auto;
+}
+.post-content {
+  padding: 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  max-height: 70%;
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+/* Enable interaction for content inside overlay */
+.post-overlay .post-content-box,
+.post-overlay .editor-panel,
+.post-overlay .post-actions,
+.post-overlay a,
+.post-overlay button,
+.post-overlay input,
+.post-overlay textarea {
+  pointer-events: auto;
 }
 
-/* actions */
-.editor-actions { display:flex; gap:0.75rem; justify-content:flex-end; margin-top:0.5rem; }
-.btn { padding:0.55rem 0.9rem; border-radius:6px; text-decoration:none; cursor:pointer; }
-.btn-primary { background:#1976d2; color:#fff; border:none; }
-.btn-secondary { background:transparent; color:inherit; border:1px solid rgba(255,255,255,0.06); }
 
-/* responsive */
-@media (max-width:640px) {
-  .editor-panel { padding:1rem; }
-  .editor-actions { flex-direction:column-reverse; align-items:stretch; }
-  .editor-actions .btn { width:100%; }
+
+.scrollable-content {
+  max-height: 600px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.post-actions {
+  margin-top: 1rem;
+}
+
+.post-actions a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+}
+
+.post-actions a:hover {
+  color: #ccc;
+}
+
+/* Subject list styling */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.subject-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
 }
